@@ -22,7 +22,7 @@
 
       imports = [
         inputs.treefmt-nix.flakeModule
-        (import-tree ./parts)
+        (import-tree ./modules/parts)
       ];
 
       flake.homeModules.default = {
