@@ -1,21 +1,24 @@
 # modules/home/omnishell/zsh/index.nix  (flake-parts module that exports flake.*)
-{ self, ... }:
-{
+{self, ...}: {
   # ❌ REMOVE any top-level flake-parts `imports = [ ./core.nix ];`
   # We import `core.nix` INSIDE each adapter module below.
 
-  flake.homeModules.zsh = { lib, config, ... }:
-  let cfg = config.programs.omnishell.zsh;
+  flake.homeModules.zsh = {
+    lib,
+    config,
+    ...
+  }: let
+      inherit (lib) mkDefault mkIf ;
+    cfg = config.programs.omnishell.zsh;
   in {
-    # imports = [ ../core/zsh.nix ];  # ← normal Nix/HM import (OK here)
-    config = lib.mkIf cfg.enable {
+    config = mkIf cfg.enable {
       programs.zsh = {
         enable = true;
-        enableCompletion              = cfg.enableCompletion;
-        autosuggestions.enable        = cfg.enableAutosuggest;
-        syntaxHighlighting.enable     = cfg.enableSyntaxHighlight;
-        shellAliases                  = cfg.shellAliases;
-        initExtra                     = cfg.initExtra;   # HM uses initExtra
+        enableCompletion = mkDefault cfg.enableCompletion;
+        autosuggestions.enable = mkDefault cfg.enableAutosuggest;
+        syntaxHighlighting.enable = mkDefault cfg.enableSyntaxHighlight;
+        shellAliases = mkDefault cfg.shellAliases;
+        initExtra = mkDefault cfg.initExtra; # HM uses initExtra
       };
     };
   };

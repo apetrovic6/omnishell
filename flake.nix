@@ -22,25 +22,25 @@
 
       imports = [
         inputs.treefmt-nix.flakeModule
-        (import-tree ./modules/parts)
+        (import-tree ./parts)
       ];
 
       flake.homeModules.default = {
         imports = [
-#          self.homeModules.zoxide
- #         self.homeModules.zsh
+          self.homeModules.zoxide
+self.homeModules.zsh
         ];
       };
 
       flake.nixosModules.default = {
         imports = [
-#          self.nixosModules.zsh
+          #          self.nixosModules.zsh
         ];
       };
 
       flake.darwinModules.default = {
         imports = [
-#          self.darwinModules.zsh
+          #          self.darwinModules.zsh
         ];
       };
 
