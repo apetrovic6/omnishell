@@ -25,7 +25,7 @@
         (import-tree ./parts)
       ];
 
-      flake.homeModules.default = {
+      flake.homeManagerModules.default = {
         imports = [
           self.homeModules.zoxide
 self.homeModules.zsh
