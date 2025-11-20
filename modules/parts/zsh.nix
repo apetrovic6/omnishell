@@ -8,17 +8,16 @@
     config,
     ...
   }: let
-    inherit (lib) mkDefault mkIf;
     cfg = config.programs.omnishell.zsh;
   in {
-    config = mkIf cfg.enable {
+    config = lib.mkIf cfg.enable {
       programs.zsh = {
         enable = true;
-        enableCompletion = mkDefault cfg.enableCompletion;
-        autosuggestions.enable = mkDefault cfg.enableAutosuggest;
-        syntaxHighlighting.enable = mkDefault cfg.enableSyntaxHighlight;
-        shellAliases = mkDefault cfg.shellAliases;
-        initExtra = mkDefault cfg.initExtra; # HM uses initExtra
+        enableCompletion = cfg.enableCompletion;
+        autosuggestions.enable = cfg.enableAutosuggest;
+        syntaxHighlighting.enable = cfg.enableSyntaxHighlight;
+        shellAliases = cfg.shellAliases;
+        initExtra = cfg.initExtra; # HM uses initExtra
       };
     };
   };

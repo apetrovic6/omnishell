@@ -21,30 +21,11 @@
       systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
 
       imports = [
+        inputs.home-manager.flakeModules.home-manager
         inputs.treefmt-nix.flakeModule
         (import-tree ./parts)
         ./lib/utils/merge-hm-modules.nix
-
       ];
-
-      flake.homeManagerModules.default = {
-        imports = [
-          self.homeModules.zoxide
-self.homeModules.zsh
-        ];
-      };
-
-      flake.nixosModules.default = {
-        imports = [
-          #          self.nixosModules.zsh
-        ];
-      };
-
-      flake.darwinModules.default = {
-        imports = [
-          #          self.darwinModules.zsh
-        ];
-      };
 
       perSystem = {
         pkgs,
