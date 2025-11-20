@@ -23,6 +23,8 @@
       imports = [
         inputs.treefmt-nix.flakeModule
         (import-tree ./parts)
+        ./lib/utils/merge-hm-modules.nix
+
       ];
 
       flake.homeManagerModules.default = {
