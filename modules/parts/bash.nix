@@ -3,20 +3,20 @@
   config,
   ...
 }: {
-  flake.homeModules.zsh = {
+  flake.homeModules.bash= {
     lib,
     config,
     ...
   }: let
     inherit (lib) mkDefault mkIf;
-    cfg = config.programs.omnishell.zsh;
+    cfg = config.programs.omnishell.bash;
   in {
     imports = [
-      ../core/zsh.nix
+      ../core/bash.nix
     ];
 
     config = mkIf cfg.enable {
-      programs.zsh = {
+      programs.bash = {
         enable = true;
         enableCompletion = mkDefault cfg.enableCompletion;
         autosuggestion.enable = mkDefault cfg.enableAutosuggest;
@@ -29,7 +29,7 @@
     };
   };
 
-  flake.nixosModules.zsh = {
+  flake.nixosModules.bash = {
     lib,
     config,
     ...
@@ -37,17 +37,16 @@
     cfg = config.programs.omnishell.zsh;
   in {
     imports = [
-      ../core/zsh.nix
+      ../core/bash.nix
     ];
 
     config = lib.mkIf cfg.enable {
-      programs.zsh = {
+      programs.bash = {
         enable = true;
         enableCompletion = cfg.enableCompletion;
-        autosuggestion.enable = cfg.enableAutosuggest;
-        syntaxHighlighting.enable = cfg.enableSyntaxHighlight;
+        sessionVariables = cfg.sessionVariables;
         shellAliases = cfg.shellAliases;
-        interactiveShellInit = cfg.initExtra; # NixOS uses interactiveShellInit
+        initExtra= cfg.initExtra; # NixOS uses interactiveShellInit
 
         environment.pathsToLink = [
           "/share/zsh"
