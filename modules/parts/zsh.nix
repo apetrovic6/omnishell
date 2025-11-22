@@ -48,10 +48,6 @@
         syntaxHighlighting.enable = cfg.enableSyntaxHighlight;
         shellAliases = cfg.shellAliases;
         interactiveShellInit = cfg.initExtra; # NixOS uses interactiveShellInit
-
-        environment.pathsToLink = [
-          "/share/zsh"
-        ];
       };
     };
   };

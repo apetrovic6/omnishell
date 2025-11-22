@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  flake.homeModules.bash= {
+  flake.homeModules.bash = {
     lib,
     config,
     ...
@@ -18,13 +18,10 @@
     config = mkIf cfg.enable {
       programs.bash = {
         enable = true;
-        enableCompletion = mkDefault cfg.enableCompletion;
-        autosuggestion.enable = mkDefault cfg.enableAutosuggest;
-        syntaxHighlighting.enable = mkDefault cfg.enableSyntaxHighlight;
-        shellAliases = mkDefault cfg.shellAliases;
-        initExtra = mkDefault cfg.initExtra; # HM uses initExtra
-        initContent = ''
-        '';
+        enableCompletion = cfg.enableCompletion;
+        sessionVariables = cfg.sessionVariables;
+        shellAliases = cfg.shellAliases;
+        initExtra = cfg.initExtra; # NixOS uses interactiveShellInit
       };
     };
   };
@@ -46,11 +43,7 @@
         enableCompletion = cfg.enableCompletion;
         sessionVariables = cfg.sessionVariables;
         shellAliases = cfg.shellAliases;
-        initExtra= cfg.initExtra; # NixOS uses interactiveShellInit
-
-        environment.pathsToLink = [
-          "/share/zsh"
-        ];
+        initExtra = cfg.initExtra; # NixOS uses interactiveShellInit
       };
     };
   };

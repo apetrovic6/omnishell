@@ -31,10 +31,12 @@
         imports = [
           self.homeModules.zsh
           self.homeModules.zoxide
+          self.homeModules.bash
         ];
 
         programs.omnishell.zsh.enable = true;
         programs.omnishell.zoxide.enable = true;
+        programs.omnishell.bash.enable = true;
       };
 
       perSystem = {

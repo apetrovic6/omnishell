@@ -9,13 +9,13 @@ in {
       default = true;
     };
 
-    sessionVariables= mkOption {
-      type = listOf str;
-      default = [];
+    sessionVariables = mkOption {
+      type = types.attrsOf types.str;
+      default = {};
     };
 
     shellAliases = mkOption {
-      type = attrsOf str;
+      type = types.attrsOf types.str;
       default = {};
     };
 
