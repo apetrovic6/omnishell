@@ -11,7 +11,6 @@
     imports = [
       ../core/zoxide.nix
     ];
-
     config = mkIf cfg.enable {
       programs.zoxide = {
         enable = true;

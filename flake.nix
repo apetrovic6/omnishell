@@ -23,7 +23,6 @@
       imports = [
         inputs.home-manager.flakeModules.home-manager
         inputs.treefmt-nix.flakeModule
-        (import-tree ./parts)
         (import-tree ./modules)
         ./lib/utils/merge-hm-modules.nix
       ];

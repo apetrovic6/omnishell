@@ -3,14 +3,7 @@
   self,
   config,
   ...
-}: let
-  zoxideInit = "eval \"$(zoxide init zsh)\"";
-
-  zoxideConfig =
-    if config.programs.omnishell.zsh.enable == true
-    then zoxideInit
-    else "";
-in {
+}: {
   flake.homeModules.zsh = {
     lib,
     config,
@@ -20,7 +13,7 @@ in {
     cfg = config.programs.omnishell.zsh;
   in {
     imports = [
-      ../modules/core/zsh.nix
+      ../core/zsh.nix
     ];
 
     config = mkIf cfg.enable {
@@ -45,7 +38,7 @@ in {
     cfg = config.programs.omnishell.zsh;
   in {
     imports = [
-      ../modules/core/zsh.nix
+      ../core/zsh.nix
     ];
 
     config = lib.mkIf cfg.enable {
