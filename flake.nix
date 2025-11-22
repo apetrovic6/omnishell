@@ -24,8 +24,19 @@
         inputs.home-manager.flakeModules.home-manager
         inputs.treefmt-nix.flakeModule
         (import-tree ./parts)
+        (import-tree ./modules)
         ./lib/utils/merge-hm-modules.nix
       ];
+
+      flake.homeManagerModules.default = {
+        imports = [
+          self.homeModules.zsh
+          self.homeModules.zoxide
+        ];
+
+        programs.omnishell.zsh.enable = true;
+        programs.omnishell.zoxide.enable = true;
+      };
 
       perSystem = {
         pkgs,

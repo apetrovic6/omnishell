@@ -6,8 +6,11 @@
     ...
   }: let
     inherit (lib) mkDefault mkIf;
-    cfg = config.programs.omnishell.zsh;
+    cfg = config.programs.omnishell.zoxide;
   in {
+    imports = [
+      ../modules/core/zoxide.nix
+    ];
     config = mkIf cfg.enable {
       programs.zoxide = {
         enable = true;

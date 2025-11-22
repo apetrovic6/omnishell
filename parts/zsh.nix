@@ -1,8 +1,16 @@
 # modules/home/omnishell/zsh/index.nix  (flake-parts module that exports flake.*)
-{self, ...}: {
-  # ❌ REMOVE any top-level flake-parts `imports = [ ./core.nix ];`
-  # We import `core.nix` INSIDE each adapter module below.
+{
+  self,
+  config,
+  ...
+}: let
+  zoxideInit = "eval \"$(zoxide init zsh)\"";
 
+  zoxideConfig =
+    if config.programs.omnishell.zsh.enable == true
+    then zoxideInit
+    else "";
+in {
   flake.homeModules.zsh = {
     lib,
     config,
@@ -11,33 +19,50 @@
     inherit (lib) mkDefault mkIf;
     cfg = config.programs.omnishell.zsh;
   in {
+    imports = [
+      ../modules/core/zsh.nix
+    ];
+
     config = mkIf cfg.enable {
       programs.zsh = {
         enable = true;
         enableCompletion = mkDefault cfg.enableCompletion;
-        autosuggestions.enable = mkDefault cfg.enableAutosuggest;
+        autosuggestion.enable = mkDefault cfg.enableAutosuggest;
         syntaxHighlighting.enable = mkDefault cfg.enableSyntaxHighlight;
         shellAliases = mkDefault cfg.shellAliases;
         initExtra = mkDefault cfg.initExtra; # HM uses initExtra
+        initContent = ''
+        '';
       };
     };
   };
 
-  # flake.nixosModules.zsh = { lib, config, ... }:
-  # let cfg = config.programs.omnishell.zsh;
-  # in {
-  #   imports = [ ./core.nix ];  # ← normal NixOS import
-  #   config = lib.mkIf cfg.enable {
-  #     programs.zsh = {
-  #       enable = true;
-  #       enableCompletion              = cfg.enableCompletion;
-  #       autosuggestions.enable        = cfg.enableAutosuggest;
-  #       syntaxHighlighting.enable     = cfg.enableSyntaxHighlight;
-  #       shellAliases                  = cfg.shellAliases;
-  #       interactiveShellInit          = cfg.initExtra;   # NixOS uses interactiveShellInit
-  #     };
-  #   };
-  # };
+  flake.nixosModules.zsh = {
+    lib,
+    config,
+    ...
+  }: let
+    cfg = config.programs.omnishell.zsh;
+  in {
+    imports = [
+      ../modules/core/zsh.nix
+    ];
+
+    config = lib.mkIf cfg.enable {
+      programs.zsh = {
+        enable = true;
+        enableCompletion = cfg.enableCompletion;
+        autosuggestion.enable = cfg.enableAutosuggest;
+        syntaxHighlighting.enable = cfg.enableSyntaxHighlight;
+        shellAliases = cfg.shellAliases;
+        interactiveShellInit = cfg.initExtra; # NixOS uses interactiveShellInit
+
+        environment.pathsToLink = [
+          "/share/zsh"
+        ];
+      };
+    };
+  };
 
   # flake.darwinModules.zsh = { lib, config, ... }:
   # let cfg = config.programs.omnishell.zsh;
