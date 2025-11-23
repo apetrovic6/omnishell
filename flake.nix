@@ -7,12 +7,18 @@
     home-manager.url = "github:nix-community/home-manager";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     import-tree.url = "github:vic/import-tree";
+    helix = {
+      #      url = "github:apetrovic6/magos";
+      url = "path:/home/apetrovic/clan/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     flake-parts,
     nixpkgs,
+    helix,
     home-manager,
     import-tree,
     ...
@@ -28,15 +34,49 @@
       ];
 
       flake.homeManagerModules.default = {
+        pkgs,
+        lib,
+        config,
+        ...
+      }: let
+        inherit (lib) mkDefault;
+      in {
         imports = [
           self.homeModules.zsh
           self.homeModules.zoxide
           self.homeModules.bash
+          self.homeModules.starship
+          self.homeModules.fastfetch
         ];
+
+        programs.omnishell.starship.enable = mkDefault true;
+
+        programs.lazygit = {
+          enable = true;
+          enableBashIntegration = mkDefault config.programs.omnishell.bash.enable;
+          enableZshIntegration = mkDefault config.programs.omnishell.zsh.enable;
+        };
+
+        programs.helix = {
+          enable = true;
+          package = helix.packages.${pkgs.system}.default;
+        };
+
+        programs.eza = {
+          enable = true;
+          git = true;
+        };
+
+        programs.bat.enable = true;
 
         programs.omnishell.zsh.enable = true;
         programs.omnishell.zoxide.enable = true;
-        programs.omnishell.bash.enable = true;
+        programs.omnishell.bash = {
+          enable = true;
+          initExtra = ''
+            fastfetch
+          '';
+        };
       };
 
       perSystem = {
