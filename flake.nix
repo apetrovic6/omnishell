@@ -67,6 +67,16 @@
           git = true;
         };
 
+        programs.cava = {
+          enable = true;
+        };
+
+        programs.zellij = {
+          enable = true;
+          enableBashIntegration = false;
+          enableZshIntegration = false;
+        };
+
         programs.bat.enable = true;
 
         programs.omnishell.zsh.enable = true;
