@@ -46,11 +46,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1766880349,
-        "narHash": "sha256-TC0dFEV5Gjki7gLtnRxOQTHqinHdU8nM9wEsvWr6+zk=",
+        "lastModified": 1767150136,
+        "narHash": "sha256-AxuDp047C+dfDfZTdKJ88yODrHu1lb5xZVpFxHtfGeI=",
         "owner": "apetrovic6",
         "repo": "hx",
-        "rev": "9d8c22cf5cfe2c2d593bad768a45791bafb253b0",
+        "rev": "a85c2beb89734b294c15dcad905a7754dd48b62b",
         "type": "github"
       },
       "original": {
@@ -217,11 +217,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1766000401,
-        "narHash": "sha256-+cqN4PJz9y0JQXfAK5J1drd0U05D5fcAGhzhfVrDlsI=",
+        "lastModified": 1767122417,
+        "narHash": "sha256-yOt/FTB7oSEKQH9EZMFMeuldK1HGpQs2eAzdS9hNS/o=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "42d96e75aa56a3f70cab7e7dc4a32868db28e8fd",
+        "rev": "dec15f37015ac2e774c84d0952d57fcdf169b54d",
         "type": "github"
       },
       "original": {
@@ -253,11 +253,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1766525018,
-        "narHash": "sha256-KxuDPpgX1Em+u3TmVJid6ZYmu4Ka1+jqo34fDzN61hE=",
+        "lastModified": 1767019742,
+        "narHash": "sha256-bHyS4YOZAzuo59t45do99055+9CFx9jtFQ0ai2xC6LM=",
         "owner": "lassulus",
         "repo": "wrappers",
-        "rev": "7ea9ba94ed2bd1fa4ae37b2665498e1950180f8a",
+        "rev": "63876bd221447d902f909d6681f645c1554a983d",
         "type": "github"
       },
       "original": {
