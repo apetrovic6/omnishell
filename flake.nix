@@ -8,8 +8,8 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     import-tree.url = "github:vic/import-tree";
     helix = {
-      url = "github:apetrovic6/hx";
-      # url = "path:/home/apetrovic/clan/helix";
+      # url = "github:apetrovic6/hx";
+      url = "path:/home/apetrovic/clan/hx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -48,6 +48,10 @@
           self.homeModules.starship
           self.homeModules.fastfetch
         ];
+
+        home.sessionVariables = {
+          EDITOR = "hx";
+        };
 
         programs.omnishell.starship.enable = mkDefault true;
 
