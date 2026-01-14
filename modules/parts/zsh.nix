@@ -23,6 +23,7 @@
         syntaxHighlighting.enable = mkDefault cfg.enableSyntaxHighlight;
         shellAliases = mkDefault cfg.shellAliases;
         initExtra = mkDefault cfg.initExtra; # HM uses initExtra
+        programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
         initContent = ''
         '';
       };
