@@ -8,8 +8,8 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     import-tree.url = "github:vic/import-tree";
     helix = {
-      # url = "github:apetrovic6/hx";
-      url = "path:/home/apetrovic/clan/hx";
+      url = "github:apetrovic6/hx";
+      # url = "path:/home/apetrovic/clan/hx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
