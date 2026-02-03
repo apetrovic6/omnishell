@@ -8,7 +8,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     import-tree.url = "github:vic/import-tree";
     helix = {
-      url = "github:apetrovic6/hx";
+      url = "github:apetrovic6/helix";
       # url = "path:/home/apetrovic/clan/hx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -39,10 +39,10 @@
         config,
         ...
       }: let
-        inherit (lib) mkDefault;
+        inherit (lib) mkDefault mkForce;
       in {
         imports = [
-          self.homeModules.zsh
+          # self.homeModules.zsh
           self.homeModules.zoxide
           self.homeModules.bash
           self.homeModules.starship
@@ -63,7 +63,7 @@
 
         programs.helix = {
           enable = true;
-          package = helix.packages.${pkgs.system}.default;
+          package = helix.packages.${pkgs.system}.default.wrap { settings.theme = "everforest_dark";};
         };
 
         programs.eza = {
@@ -83,8 +83,9 @@
 
         programs.bat.enable = true;
 
-        programs.omnishell.zsh.enable = true;
+        # programs.omnishell.zsh.enable = true;
         programs.omnishell.zoxide.enable = true;
+
         programs.omnishell.bash = {
           enable = true;
           initExtra = ''
