@@ -63,7 +63,7 @@
 
         programs.helix = {
           enable = true;
-          package = helix.packages.${pkgs.system}.default.wrap { settings.theme = "everforest_dark";};
+          package = helix.packages.${pkgs.system}.default.wrap {settings.theme = "everforest_dark";};
         };
 
         programs.eza = {
