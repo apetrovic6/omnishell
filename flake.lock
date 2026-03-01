@@ -27,11 +27,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1771984924,
-        "narHash": "sha256-nSl1mU35WazZ39sVievhCPqU+9Wm+oKQ7qikIBhNnVM=",
+        "lastModified": 1772244120,
+        "narHash": "sha256-oEu61Wlp8nPuYj7cpmm6U1g9GbVcJsrhKgo6Rj2/VFQ=",
         "owner": "apetrovic6",
         "repo": "helix",
-        "rev": "9ef1230dfe30590a4432ca0231793986edfabb2b",
+        "rev": "6e37b75573950b2556679198e0279fe1bcb10456",
         "type": "github"
       },
       "original": {
@@ -60,11 +60,11 @@
     },
     "import-tree": {
       "locked": {
-        "lastModified": 1772159371,
-        "narHash": "sha256-AkfVgWWxt1pa1SlfKzcL1oQpMzgP70U3fBtzXqEGOms=",
+        "lastModified": 1772263719,
+        "narHash": "sha256-4TRO+jUycfR3g4KAbyK0wQEEJ7Xcmid2Ry+tWv4HPLw=",
         "owner": "vic",
         "repo": "import-tree",
-        "rev": "78c35e32f2b499c25e0671e41662537a6b1edbf0",
+        "rev": "205675fa599ff8a74b6c8c2cc5149cdaeac76f5f",
         "type": "github"
       },
       "original": {
@@ -106,11 +106,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1771848320,
-        "narHash": "sha256-0MAd+0mun3K/Ns8JATeHT1sX28faLII5hVLq0L3BdZU=",
+        "lastModified": 1772198003,
+        "narHash": "sha256-I45esRSssFtJ8p/gLHUZ1OUaaTaVLluNkABkk6arQwE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2fc6539b481e1d2569f25f8799236694180c0993",
+        "rev": "dd9b079222d43e1943b6ebd802f04fd959dc8e61",
         "type": "github"
       },
       "original": {
