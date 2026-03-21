@@ -20,6 +20,7 @@
     },
     "helix": {
       "inputs": {
+        "helix": "helix_2",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -27,15 +28,38 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1774101670,
-        "narHash": "sha256-iUqvUNRVZdZ1Du9vHZZZWVU6MQfjsTJw46jRVCzL21g=",
+        "lastModified": 1774106303,
+        "narHash": "sha256-NWf5IGosjmq8wbWNLtk0d8Q1D2omB/rE4QiownhqU0g=",
         "owner": "apetrovic6",
         "repo": "helix",
-        "rev": "05078bb092e01e3dbd131ab45570b53f41b1614d",
+        "rev": "9c7da00ad17eab2a9c3e3efdf115f776a6129fd7",
         "type": "github"
       },
       "original": {
         "owner": "apetrovic6",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
+    "helix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "helix",
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1774028838,
+        "narHash": "sha256-1zylMvReaWs4ICEq773PvJFXglsEq5BC2YKv0fNa81k=",
+        "owner": "helix-editor",
+        "repo": "helix",
+        "rev": "3d68e0a32617d1844543219f6790a2b3fa169170",
+        "type": "github"
+      },
+      "original": {
+        "owner": "helix-editor",
+        "ref": "master",
         "repo": "helix",
         "type": "github"
       }
@@ -144,6 +168,28 @@
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs_2",
         "treefmt-nix": "treefmt-nix_2"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "helix",
+          "helix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1759631821,
+        "narHash": "sha256-V8A1L0FaU/aSXZ1QNJScxC12uP4hANeRBgI4YdhHeRM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "1d7cbdaad90f8a5255a89a6eddd8af24dc89cafe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "treefmt-nix": {
