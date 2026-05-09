@@ -33,10 +33,10 @@
         ./lib/utils/merge-hm-modules.nix
       ];
 
-      flake.nixosModules.helix = {pkgs, ...}:{
-         environment.systemPackages =  [
-           (helix.packages.${pkgs.system}.default.wrap { settings.theme = "everforest_dark";} )
-         ];
+      flake.nixosModules.helix = {pkgs, ...}: {
+        environment.systemPackages = [
+          (helix.packages.${pkgs.system}.default.wrap {settings.theme = "everforest_dark";})
+        ];
       };
 
       flake.homeManagerModules.default = {
