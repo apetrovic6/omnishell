@@ -7,11 +7,6 @@
     home-manager.url = "github:nix-community/home-manager";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     import-tree.url = "github:vic/import-tree";
-    helix = {
-      url = "github:apetrovic6/helix";
-      # url = "path:/home/apetrovic/clan/hx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -33,11 +28,11 @@
         ./lib/utils/merge-hm-modules.nix
       ];
 
-      flake.nixosModules.helix = {pkgs, ...}: {
-        environment.systemPackages = [
-          (helix.packages.${pkgs.system}.default.wrap {settings.theme = "everforest_dark";})
-        ];
-      };
+      # flake.nixosModules.helix = {pkgs, ...}: {
+      #   environment.systemPackages = [
+      #     (helix.packages.${pkgs.system}.default.wrap {settings.theme = "everforest_dark";})
+      #   ];
+      # };
 
       flake.homeManagerModules.default = {
         pkgs,
@@ -67,10 +62,10 @@
           enableZshIntegration = mkDefault config.programs.omnishell.zsh.enable;
         };
 
-        programs.helix = {
-          enable = true;
-          package = helix.packages.${pkgs.system}.default.wrap {settings.theme = "everforest_dark";};
-        };
+        # programs.helix = {
+        #   enable = true;
+        #   package = helix.packages.${pkgs.system}.default.wrap {settings.theme = "everforest_dark";};
+        # };
 
         programs.eza = {
           enable = true;
